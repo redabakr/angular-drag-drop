@@ -55,7 +55,7 @@ export class CdkDragDropEnterPredicateExample {
       return;
     }
 
-   // merging logic 
+   // merge logic 
     event.container.data[event.currentIndex].value = from.value + " " + to.value;
      _.remove(event.previousContainer.data,(item)=>item.index == from.index);
     // update color to green
