@@ -8,8 +8,7 @@
     cdkDropListConnectedTo="destinationList"
     class="example-list"
     (cdkDropListDropped)="drop($event)"
-    cdkDropListSortingDisabled
-    [cdkDropListEnterPredicate]="noReturnPredicate">
+    cdkDropListSortingDisabled>
     <div
       class="example-box sourceBox"
       *ngFor="let item of sourceList"
@@ -27,8 +26,7 @@
     [cdkDropListData]="destinationList"
     cdkDropListConnectedTo="all"
     class="example-list"
-    (cdkDropListDropped)="drop($event)"
-    [cdkDropListEnterPredicate]="evenPredicate">
+    (cdkDropListDropped)="drop($event)">
     <div
       #destItems
       class="example-box destinationBox"

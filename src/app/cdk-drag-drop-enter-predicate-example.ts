@@ -38,28 +38,28 @@ export class CdkDragDropEnterPredicateExample {
 
  
   drop(event: CdkDragDrop<Item[]>) {
+    // disable drag and drop with in the same list
     if (event.previousContainer === event.container) { return;}
+    // to avoid issue when dragging to last inedx
     if(event.currentIndex >= this.destinationList.length){
       alert("Invalid Position!");
       return;
     }
+
     let from = event.previousContainer.data[event.previousIndex];
     let to = event.container.data[event.currentIndex]
+
+    // Validate position, i.e B cannot be before A
     if(from.index != to.index || event.currentIndex >= this.destinationList.length){
       alert("Invalid Position!");
       return;
     }
-   
+
+   // merging logic 
     event.container.data[event.currentIndex].value = from.value + " " + to.value;
      _.remove(event.previousContainer.data,(item)=>item.index == from.index);
     // update color to green
      this.destItems.get(event.currentIndex)?.nativeElement.classList.remove('destinationBox');
      this.destItems.get(event.currentIndex)?.nativeElement.classList.add('mergedBox');    
-  }
-  evenPredicate(item: CdkDrag<Item[]>) {
-    return true;  
-  }
-  noReturnPredicate() {
-    return false;
   }
 }
