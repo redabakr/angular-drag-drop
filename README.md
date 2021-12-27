@@ -3,6 +3,9 @@ Angular app for Drag and Drop Task
 
 This is a test project to demonstrate a drag and drop functionality
 
+##Try it Online
+[Live Demo](https://stackblitz.com/github/redabakr/angular-drag-drop/tree/master)
+
 ## Get started
 
 ### Clone the repo
