@@ -1,0 +1,51 @@
+<div class="example-container">
+  <h2>Source Box</h2>
+
+  <div
+    id="sourceList"
+    cdkDropList
+    [cdkDropListData]="sourceList"
+    cdkDropListConnectedTo="destinationList"
+    class="example-list"
+    (cdkDropListDropped)="drop($event)"
+    cdkDropListSortingDisabled
+    [cdkDropListEnterPredicate]="noReturnPredicate">
+    <div
+      class="example-box sourceBox"
+      *ngFor="let item of sourceList"
+      [cdkDragData]="item"
+      cdkDrag>{{item.value}}</div>
+  </div>
+</div>
+
+<div class="example-container">
+  <h2>Destination Box</h2>
+
+  <div
+    id="destinationList"
+    cdkDropList
+    [cdkDropListData]="destinationList"
+    cdkDropListConnectedTo="all"
+    class="example-list"
+    (cdkDropListDropped)="drop($event)"
+    [cdkDropListEnterPredicate]="evenPredicate">
+    <div
+      #destItems
+      class="example-box destinationBox"
+      *ngFor="let item of destinationList"
+      cdkDrag
+      [cdkDragData]="item">
+      {{item.value}}
+    </div>
+  </div>
+</div>
+
+<hr>
+<div class="example-container">
+  <h2>Source Box</h2>
+ <pre> {{sourceList | json}} </pre>
+</div>
+<div class="example-container">
+  <h2>Destination Box</h2>
+ <pre> {{destinationList | json}} </pre>
+</div>
