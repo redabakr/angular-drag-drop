@@ -59,6 +59,10 @@
   background-color: green;
   border: solid 3px green;
 }
+.mergedErrorBox{
+  background-color: red;
+  border: solid 3px red;
+}
 
 .sourceBox{
   background-color: orange;

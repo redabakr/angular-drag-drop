@@ -35,7 +35,6 @@ export class CdkDragDropEnterPredicateExample {
     {value:'5', index:5},
     {value:'6', index:6}
   ];
-
  
   drop(event: CdkDragDrop<Item[]>) {
     // disable drag and drop with in the same list
@@ -50,16 +49,20 @@ export class CdkDragDropEnterPredicateExample {
     let to = event.container.data[event.currentIndex]
 
     // Validate position, i.e B cannot be before A
-    if(from.index != to.index || event.currentIndex >= this.destinationList.length){
-      alert("Invalid Position!");
-      return;
-    }
+    // if(from.index != to.index || event.currentIndex >= this.destinationList.length){
+    //   alert("Invalid Position!");
+    //   return;
+    // }
 
    // merge logic 
     event.container.data[event.currentIndex].value = from.value + " " + to.value;
      _.remove(event.previousContainer.data,(item)=>item.index == from.index);
     // update color to green
      this.destItems.get(event.currentIndex)?.nativeElement.classList.remove('destinationBox');
+     if(from.index != to.index || event.currentIndex >= this.destinationList.length){      
+      this.destItems.get(event.currentIndex)?.nativeElement.classList.add('mergedErrorBox');   
+    }else{
      this.destItems.get(event.currentIndex)?.nativeElement.classList.add('mergedBox');    
+    }
   }
 }
